@@ -5,7 +5,7 @@
 namespace BootstrapBlazor.Components;
 
 /// <summary>
-/// 
+/// TreeNodeBase 基类
 /// </summary>
 public abstract class TreeNodeBase<TItem> : NodeBase<TItem>
 {
