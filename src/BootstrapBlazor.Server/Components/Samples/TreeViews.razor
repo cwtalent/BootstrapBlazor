@@ -190,6 +190,13 @@
               MaxSelectedCount="2" OnMaxSelectedCountExceed="OnMaxSelectedCountExceed"></TreeView>
 </DemoBlock>
 
+<DemoBlock Title="@Localizer["TreeViewEditableTitle"]"
+           Introduction="@Localizer["TreeViewEditableIntro"]"
+           Name="IsEditable">
+    <section ignore>@((MarkupString)Localizer["TreeViewEditableDesc"].Value)</section>
+    <TreeView TItem="TreeFoo" Items="@SearchItems" IsEditable="true"></TreeView>
+</DemoBlock>
+
 <AttributeTable Items="@GetAttributes()"></AttributeTable>
 
 <AttributeTable Items="@GetTreeItemAttributes()" Title="@Localizer["TreeViewsAttribute"]"></AttributeTable>
