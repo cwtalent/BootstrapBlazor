@@ -281,6 +281,12 @@ public partial class TreeView<TItem> : IModelEqualityComparer<TItem>
     [Parameter]
     public bool AutoCheckParent { get; set; }
 
+    /// <summary>
+    /// 获得/设置 是否可编辑节点 默认 false
+    /// </summary>
+    [Parameter]
+    public bool IsEditable { get; set; }
+
     private string? _searchText;
 
     /// <summary>
