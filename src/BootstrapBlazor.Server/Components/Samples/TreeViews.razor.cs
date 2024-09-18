@@ -52,6 +52,8 @@ public sealed partial class TreeViews
 
     private List<TreeViewItem<TreeFoo>>? SearchItems { get; set; } = TreeFoo.GetTreeItems();
 
+    private List<TreeViewItem<TreeFoo>>? EditableItems { get; set; } = TreeFoo.GetTreeItems();
+
     private Foo Model => Foo.Generate(LocalizerFoo);
 
     private Task OnTreeItemClick(TreeViewItem<TreeFoo> item)
