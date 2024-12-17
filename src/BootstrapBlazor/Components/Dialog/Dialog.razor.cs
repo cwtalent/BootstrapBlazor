@@ -79,7 +79,13 @@ public partial class Dialog : IDisposable
         OnCloseAsync = async () =>
         {
             // 回调 OnCloseAsync
-            if (option.OnCloseAsync != null)
+            if (CurrentParameter != null
+                && CurrentParameter.TryGetValue(nameof(DialogOption.OnCloseAsync), out object onCloseAsyncObj)
+                && onCloseAsyncObj is Func<Task> onCloseAsync)
+            {
+                await onCloseAsync();
+            }
+            else if(option.OnCloseAsync != null)
             {
                 await option.OnCloseAsync();
             }
@@ -161,6 +167,11 @@ public partial class Dialog : IDisposable
             {
                 parameters.Add(nameof(ModalDialog.GetResultDialog), resultOption.GetDialog);
             }
+        }
+
+        if (option.OnCloseAsync != null)
+        {
+            parameters.Add(nameof(DialogOption.OnCloseAsync), option.OnCloseAsync);
         }
 
         // 保存当前 Dialog 参数
